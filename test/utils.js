@@ -5,8 +5,9 @@ describe ("tnt utils", function () {
 
     describe ("tnt_utils.connect", function () {
     	it ("Exists and is a method", function () {
-    	    assert.isDefined (tnt_utils.connect);
-    	    assert.isFunction (tnt_utils.connect);
+	    console.log(tnt_utils.utils);
+    	    assert.isDefined (tnt_utils.utils.connect.connect);
+    	    assert.isFunction (tnt_utils.utils.connect.connect);
     	});
     	it ("Can connect two functions", function () {
     	    var my_class = function () {
@@ -267,43 +268,43 @@ describe ("tnt utils", function () {
 
     // });
 
-    describe ("tnt utils iterator", function () {
-	it ("exists and is a method", function () {
-	    assert.isDefined(tnt_utils.iterator);
-	    assert.isFunction(tnt_utils.iterator);
-	});
+    // describe ("tnt utils iterator", function () {
+    // 	it ("exists and is a method", function () {
+    // 	    assert.isDefined(tnt_utils.iterator);
+    // 	    assert.isFunction(tnt_utils.iterator);
+    // 	});
 
-	it ("returns a callback", function () {
-	    assert.isDefined(tnt_utils.iterator());
-	    assert.isFunction(tnt_utils.iterator());
-	});
+    // 	it ("returns a callback", function () {
+    // 	    assert.isDefined(tnt_utils.iterator());
+    // 	    assert.isFunction(tnt_utils.iterator());
+    // 	});
 
-	var i = tnt_utils.iterator();
-	it ("starts with 0 by default", function () {
-	    assert.strictEqual(i(), 0);
-	});
+    // 	var i = tnt_utils.iterator();
+    // 	it ("starts with 0 by default", function () {
+    // 	    assert.strictEqual(i(), 0);
+    // 	});
 
-	it ("creates new values", function () {
-	    assert.strictEqual(i(), 1);
-	});
+    // 	it ("creates new values", function () {
+    // 	    assert.strictEqual(i(), 1);
+    // 	});
 
-	it ("can start from custom values", function () {
-	    var j = tnt_utils.iterator(100);
-	    assert.strictEqual(j(), 100);
-	});
-    });
+    // 	it ("can start from custom values", function () {
+    // 	    var j = tnt_utils.iterator(100);
+    // 	    assert.strictEqual(j(), 100);
+    // 	});
+    // });
 
-    describe ("tnt utils script_path", function () {
-	it ("Exists and is a method", function () {
-	    assert.isDefined(tnt_utils.script_path);
-	    assert.isFunction(tnt_utils.script_path);
-	});
+    // describe ("tnt utils script_path", function () {
+    // 	it ("Exists and is a method", function () {
+    // 	    assert.isDefined(tnt_utils.script_path);
+    // 	    assert.isFunction(tnt_utils.script_path);
+    // 	});
 
-	// TODO: skipping because needs phantom.js or a similar head-less webkit to work (needs 'document');
-	it.skip ("Finds the absolute path to a script", function () {
-	    var path = tnt_utils.script_path("tnt.js");
-	    assert.isDefined(path);
-	    assert.notEqual(path, "");
-	});
-    });
+    // 	// TODO: skipping because needs phantom.js or a similar head-less webkit to work (needs 'document');
+    // 	it.skip ("Finds the absolute path to a script", function () {
+    // 	    var path = tnt_utils.script_path("tnt.js");
+    // 	    assert.isDefined(path);
+    // 	    assert.notEqual(path, "");
+    // 	});
+    // });
 });

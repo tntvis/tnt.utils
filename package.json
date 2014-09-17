@@ -2,7 +2,7 @@
   "name": "tnt.utils",
   "version": "0.0.0",
   "description": "Utils for tnt",
-  "main": "src/utils.js",
+  "main": "src/index.js",
   "directories": {
     "test": "test"
   },

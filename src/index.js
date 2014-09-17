@@ -7,3 +7,4 @@
 
 // Same as
 module.exports.utils = require("./utils.js");
+module.exports.utils.connect = require("./connect");
