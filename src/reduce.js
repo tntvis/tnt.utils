@@ -1,4 +1,4 @@
-tnt.utils.reduce = function () {
+var reduce = function () {
     var smooth = 5;
     var value = 'val';
     var redundant = function (a, b) {
@@ -90,9 +90,8 @@ tnt.utils.reduce = function () {
     return reduce;
 };
 
-tnt.utils.reduce.block = function () {
-
-    var reduce = tnt.utils.reduce()
+var block = function () {
+    var red = reduce()
 	.value('start');
 
     var value2 = 'end';
@@ -100,7 +99,7 @@ tnt.utils.reduce.block = function () {
     var join = function (obj1, obj2) {
         return {
             'object' : {
-                'start' : obj1.object[reduce.value()],
+                'start' : obj1.object[red.value()],
                 'end'   : obj2[value2]
             },
             'value'  : obj2[value2]
@@ -109,9 +108,9 @@ tnt.utils.reduce.block = function () {
 
     // var join = function (obj1, obj2) { return obj1 };
 
-    reduce.reducer( function (arr) {
-	var value = reduce.value();
-	var redundant = reduce.redundant();
+    red.reducer( function (arr) {
+	var value = red.value();
+	var redundant = red.redundant();
 	var reduced_arr = [];
 	var curr = {
 	    'object' : arr[0],
@@ -137,7 +136,7 @@ tnt.utils.reduce.block = function () {
 	    return join;
 	}
 	join = cbak;
-	return reduce;
+	return red;
     };
 
     reduce.value2 = function (field) {
@@ -145,18 +144,18 @@ tnt.utils.reduce.block = function () {
 	    return value2;
 	}
 	value2 = field;
-	return reduce;
+	return red;
     };
 
-    return reduce;
+    return red;
 };
 
-tnt.utils.reduce.line = function () {
-    var reduce = tnt.utils.reduce();
+var line = function () {
+    var red = reduce();
 
-    reduce.reducer ( function (arr) {
-	var redundant = reduce.redundant();
-	var value = reduce.value();
+    red.reducer ( function (arr) {
+	var redundant = red.redundant();
+	var value = red.value();
 	var reduced_arr = [];
 	var curr = arr[0];
 	for (var i=1; i<arr.length-1; i++) {
@@ -171,7 +170,11 @@ tnt.utils.reduce.line = function () {
 	return reduced_arr;
     });
 
-    return reduce;
+    return red;
 
 };
+
+module.exports = reduce;
+module.exports.line = line;
+module.exports.block = block;
 

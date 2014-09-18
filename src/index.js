@@ -7,4 +7,5 @@
 
 // Same as
 module.exports.utils = require("./utils.js");
-module.exports.utils.connect = require("./connect");
+module.exports.utils.connect = require("./connect.js");
+module.exports.utils.reduce = require("./reduce.js");
