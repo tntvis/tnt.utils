@@ -22,14 +22,14 @@ module.exports = function (grunt) {
 	    }
 	},
 
-	mochaTest : {
-	    test : {
-		options : {
-		    reporter : "spec"
-		},
-		src : ['test/**/*.js']
-	    }
-	}
+// 	mochaTest : {
+// 	    test : {
+// 		options : {
+// 		    reporter : "spec"
+// 		},
+// 		src : ['test/**/*.js']
+// 	    }
+// 	}
 
     });
 
@@ -38,5 +38,5 @@ module.exports = function (grunt) {
     grunt.loadNpmTasks ('grunt-mocha-test');
 
     grunt.registerTask ('default', 'test');
-    grunt.registerTask ('test', ['jshint', 'mochaTest']);
+    grunt.registerTask ('test', ['jshint', 'mochacov']);
 };
