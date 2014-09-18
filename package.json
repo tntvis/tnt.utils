@@ -31,6 +31,16 @@
     "grunt-contrib-jshint": "^0.10.0",
     "grunt-mocha-cov": "^0.3.0",
     "grunt-mocha-test": "^0.12.0",
-    "mocha": "^1.21.4"
+    "mocha": "^1.21.4",
+    "mocha-lcov-reporter": "0.0.1",
+    "travis-cov": "^0.2.5"
+  },
+  "config" : {
+    "blanket" : {
+      "pattern" : ["src"]
+    },
+    "travis-cov" : {
+      "threshold" : 80
+    }
   }
 }
