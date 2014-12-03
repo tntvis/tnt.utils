@@ -1,4 +1,4 @@
-var tnt_utils = require("../");
+var tnt_utils = require("../src/index.js");
 var assert = require("chai").assert;
 
 describe ("tnt utils", function () {

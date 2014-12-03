@@ -46,13 +46,18 @@
     "uglify-js": "~2.4.15",
     "watchify": "^1.0.2"
   },
-  "config" : {
-    "blanket" : {
-      "pattern" : ["src"],
-      "data-cover-never" : "node_modules"
+  "config": {
+    "blanket": {
+      "pattern": [
+        "src"
+      ],
+      "data-cover-never": "node_modules"
     },
-    "travis-cov" : {
-      "threshold" : 60
+    "travis-cov": {
+      "threshold": 60
     }
+  },
+  "dependencies": {
+    "blanket": "^1.1.6"
   }
 }
