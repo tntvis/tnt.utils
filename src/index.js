@@ -6,6 +6,10 @@
 // });
 
 // Same as
-module.exports.utils = require("./utils.js");
-module.exports.utils.connect = require("./connect.js");
-module.exports.utils.reduce = require("./reduce.js");
+var utils = require("./utils.js");
+utils.connect = require("./connect.js");
+utils.reduce = require("./reduce.js");
+module.exports = exports = utils;
+// module.exports.utils = require("./utils.js");
+// module.exports.utils.connect = require("./connect.js");
+// module.exports.utils.reduce = require("./reduce.js");

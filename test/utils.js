@@ -5,8 +5,8 @@ describe ("tnt utils", function () {
 
     describe ("tnt_utils.connect", function () {
     	it ("exists and is a method", function () {
-    	    assert.isDefined (tnt_utils.utils.connect);
-    	    assert.isFunction (tnt_utils.utils.connect);
+    	    assert.isDefined (tnt_utils.connect);
+    	    assert.isFunction (tnt_utils.connect);
     	});
     	it ("can connect two functions", function () {
     	    var my_class = function () {
@@ -18,7 +18,7 @@ describe ("tnt utils", function () {
     	    };
     	    var obj1 = my_class();
     	    var obj2 = my_class();
-    	    obj1.run = tnt_utils.utils.connect (obj1.run, obj2.run);
+    	    obj1.run = tnt_utils.connect (obj1.run, obj2.run);
     	    assert.strictEqual (obj1.run(5), 20);
     	});
     	it ("can connect more than 2 functions", function () {
@@ -32,43 +32,43 @@ describe ("tnt utils", function () {
     	    var obj1 = my_class();
     	    var obj2 = my_class();
     	    var obj3 = my_class();
-    	    obj1.run = tnt_utils.utils.connect (obj1.run, obj2.run);
-    	    obj1.run = tnt_utils.utils.connect (obj1.run, obj3.run);
+    	    obj1.run = tnt_utils.connect (obj1.run, obj2.run);
+    	    obj1.run = tnt_utils.connect (obj1.run, obj3.run);
     	    assert.strictEqual (obj1.run(5), 40);
     	});
     });
 
     describe ("tnt.utils.reduce", function () {
     	it ("exists and is a method", function () {
-    	    assert.isDefined(tnt_utils.utils.reduce);
-    	    assert.isFunction(tnt_utils.utils.reduce);
+    	    assert.isDefined(tnt_utils.reduce);
+    	    assert.isFunction(tnt_utils.reduce);
     	});
     
     	it ("returns a callback", function () {
-    	    assert.isDefined(tnt_utils.utils.reduce());
-    	    assert.isFunction(tnt_utils.utils.reduce());
+    	    assert.isDefined(tnt_utils.reduce());
+    	    assert.isFunction(tnt_utils.reduce());
     	});
 
     	it ("has a 'reducer' method", function () {
-    	    var reduce = tnt_utils.utils.reduce();
+    	    var reduce = tnt_utils.reduce();
     	    assert.isDefined(reduce.reducer);
     	    assert.isFunction(reduce.reducer);
     	});
 
     	it ("has a 'redundant' method", function () {
-    	    var reduce = tnt_utils.utils.reduce();
+    	    var reduce = tnt_utils.reduce();
     	    assert.isDefined(reduce.redundant);
     	    assert.isFunction(reduce.redundant);
     	});
 
     	it ("has a 'value' method", function () {
-    	    var reduce = tnt_utils.utils.reduce();
+    	    var reduce = tnt_utils.reduce();
     	    assert.isDefined(reduce.value);
     	    assert.isFunction(reduce.value);
     	});
 
     	it ("has a 'smooth' method", function () {
-    	    var reduce = tnt_utils.utils.reduce();
+    	    var reduce = tnt_utils.reduce();
     	    assert.isDefined(reduce.smooth);
     	    assert.isFunction(reduce.smooth);
     	});
@@ -77,17 +77,17 @@ describe ("tnt utils", function () {
 
     describe ("tnt_utils.reduce.line", function () {
     	it ("exists and is a method", function () {
-    	    assert.isDefined(tnt_utils.utils.reduce.line);
-    	    assert.isFunction(tnt_utils.utils.reduce.line);
+    	    assert.isDefined(tnt_utils.reduce.line);
+    	    assert.isFunction(tnt_utils.reduce.line);
     	});
 
     	it ("returns a callback", function () {
-    	    assert.isDefined(tnt_utils.utils.reduce.line());
-    	    assert.isFunction(tnt_utils.utils.reduce.line());
+    	    assert.isDefined(tnt_utils.reduce.line());
+    	    assert.isFunction(tnt_utils.reduce.line());
     	});
 
     	it ("has utils.reduce methods", function () {
-    	    var reduce = tnt_utils.utils.reduce.line();
+    	    var reduce = tnt_utils.reduce.line();
     	    assert.isDefined(reduce.redundant);
     	    assert.isFunction(reduce.redundant);
 
@@ -110,7 +110,7 @@ describe ("tnt utils", function () {
     			}
     		       ];
 
-    	    var r = tnt_utils.utils.reduce.line()
+    	    var r = tnt_utils.reduce.line()
     		.smooth(0)
     		.redundant (function () {
     		    return false;
@@ -138,7 +138,7 @@ describe ("tnt utils", function () {
     			}
     		       ];
 
-    	    var r = tnt_utils.utils.reduce.line()
+    	    var r = tnt_utils.reduce.line()
     		.smooth(1);
 
     	    var reduced = r(data);
@@ -171,7 +171,7 @@ describe ("tnt utils", function () {
     			   val : 1
     			 }
     		       ];
-    	    var r = tnt_utils.utils.reduce.line()
+    	    var r = tnt_utils.reduce.line()
     		.smooth (3)
     		.redundant (function () { return false; });
 
@@ -189,7 +189,7 @@ describe ("tnt utils", function () {
 	});
     });
 
-    var red = tnt_utils.utils.reduce.line();
+    var red = tnt_utils.reduce.line();
     describe ("API", function () {
 
     	describe ('smooth', function () {
@@ -268,16 +268,16 @@ describe ("tnt utils", function () {
 
     describe ("tnt utils iterator", function () {
     	it ("exists and is a method", function () {
-    	    assert.isDefined(tnt_utils.utils.iterator);
-    	    assert.isFunction(tnt_utils.utils.iterator);
+    	    assert.isDefined(tnt_utils.iterator);
+    	    assert.isFunction(tnt_utils.iterator);
     	});
 
     	it ("returns a callback", function () {
-    	    assert.isDefined(tnt_utils.utils.iterator());
-    	    assert.isFunction(tnt_utils.utils.iterator());
+    	    assert.isDefined(tnt_utils.iterator());
+    	    assert.isFunction(tnt_utils.iterator());
     	});
 
-    	var i = tnt_utils.utils.iterator();
+    	var i = tnt_utils.iterator();
     	it ("starts with 0 by default", function () {
     	    assert.strictEqual(i(), 0);
     	});
@@ -287,15 +287,15 @@ describe ("tnt utils", function () {
     	});
 
     	it ("can start from custom values", function () {
-    	    var j = tnt_utils.utils.iterator(100);
+    	    var j = tnt_utils.iterator(100);
     	    assert.strictEqual(j(), 100);
     	});
     });
 
     describe ("tnt utils script_path", function () {
     	it ("Exists and is a method", function () {
-    	    assert.isDefined(tnt_utils.utils.script_path);
-    	    assert.isFunction(tnt_utils.utils.script_path);
+    	    assert.isDefined(tnt_utils.script_path);
+    	    assert.isFunction(tnt_utils.script_path);
     	});
 
     // 	// TODO: skipping because needs phantom.js or a similar head-less webkit to work (needs 'document');
