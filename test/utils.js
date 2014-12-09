@@ -3,41 +3,6 @@ var assert = require("chai").assert;
 
 describe ("tnt utils", function () {
 
-    describe ("tnt_utils.connect", function () {
-    	it ("exists and is a method", function () {
-    	    assert.isDefined (tnt_utils.connect);
-    	    assert.isFunction (tnt_utils.connect);
-    	});
-    	it ("can connect two functions", function () {
-    	    var my_class = function () {
-    		var o = {};
-    		o.run = function (n) {
-    		    return n*2;
-    		};
-    		return o;
-    	    };
-    	    var obj1 = my_class();
-    	    var obj2 = my_class();
-    	    obj1.run = tnt_utils.connect (obj1.run, obj2.run);
-    	    assert.strictEqual (obj1.run(5), 20);
-    	});
-    	it ("can connect more than 2 functions", function () {
-    	    var my_class = function () {
-    		var o = {};
-    		o.run = function (n) {
-    		    return n*2;
-    		};
-    		return o;
-    	    };
-    	    var obj1 = my_class();
-    	    var obj2 = my_class();
-    	    var obj3 = my_class();
-    	    obj1.run = tnt_utils.connect (obj1.run, obj2.run);
-    	    obj1.run = tnt_utils.connect (obj1.run, obj3.run);
-    	    assert.strictEqual (obj1.run(5), 40);
-    	});
-    });
-
     describe ("tnt.utils.reduce", function () {
     	it ("exists and is a method", function () {
     	    assert.isDefined(tnt_utils.reduce);
