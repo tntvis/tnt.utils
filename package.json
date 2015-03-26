@@ -14,10 +14,7 @@
     "url": "https://github.com/emepyc/tnt.utils"
   },
   "keywords": [
-    "tnt",
-    "biojs",
-    "javascript",
-    "utils"
+    "tnt"
   ],
   "author": "Miguel Pignatelli",
   "license": "Apache-2.0",
