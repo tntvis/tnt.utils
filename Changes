@@ -1,0 +1,2 @@
+0.0.1
+	- deferCancel passes 'this' and 'arguments' to the deferred function

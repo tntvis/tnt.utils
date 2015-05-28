@@ -30,8 +30,12 @@ module.exports = {
 	var tick;
 
 	var defer_cancel = function () {
+	    var args = Array.prototype.slice.call(arguments);
+	    var that = this;
 	    clearTimeout(tick);
-	    tick = setTimeout(cbak, time);
+	    tick = setTimeout (function () {
+		cbak.apply (that, args);
+	    }, time);
 	};
 
 	return defer_cancel;
