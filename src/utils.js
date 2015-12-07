@@ -27,17 +27,17 @@ module.exports = {
     },
 
     defer_cancel : function (cbak, time) {
-	var tick;
+        var tick;
 
-	var defer_cancel = function () {
-	    var args = Array.prototype.slice.call(arguments);
-	    var that = this;
-	    clearTimeout(tick);
-	    tick = setTimeout (function () {
-		cbak.apply (that, args);
-	    }, time);
-	};
+        var defer_cancel = function () {
+            var args = Array.prototype.slice.call(arguments);
+            var that = this;
+            clearTimeout(tick);
+            tick = setTimeout (function () {
+                cbak.apply (that, args);
+            }, time);
+        };
 
-	return defer_cancel;
+        return defer_cancel;
     }
 };
