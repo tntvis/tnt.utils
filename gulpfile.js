@@ -1,22 +1,13 @@
-/*
- * tnt.newick
- * https://github.com/emepyc/tnt.newick
- *
- * Copyright (c) 2014 Miguel Pignatelli
- * Licensed under the Apache 2 license.
- */
-
 var gulp   = require('gulp');
 var jshint = require('gulp-jshint');
 var mocha = require('gulp-mocha');
 var watch = require('gulp-watch');
 var uglify = require('gulp-uglify');
 var browserify = require('gulp-browserify');
-var coveralls = require('gulp-coveralls');
 
 // gulp helper
 var gzip = require('gulp-gzip');
-var clean = require('gulp-rimraf');
+var del = require("del");
 var rename = require('gulp-rename');
 
 // path tools
@@ -37,7 +28,7 @@ var outputFileMinSt = outputFile + ".min.js";
 var outputFileMin = join(buildDir,outputFileMinSt);
 
 // a failing test breaks the whole build chain
-gulp.task('default', ['lint', 'test', 'coveralls', 'build-browser', 'build-browser-gzip']);
+gulp.task('default', ['lint', 'test', 'build-browser', 'build-browser-gzip']);
 
 
 gulp.task('lint', function() {
@@ -52,12 +43,6 @@ gulp.task('test', function () {
                  useColors: false}));
 });
 
-// coveralls
-gulp.task('coveralls', function() {
-  return gulp.src('coverage/**/lcov.info')
-    .pipe(coveralls());
-});
-
 gulp.task('watch', function() {
    gulp.watch(['./src/**/*.js','./lib/**/*.js', './test/**/*.js'], function() {
      gulp.run('test');
@@ -67,7 +52,7 @@ gulp.task('watch', function() {
 
 // will remove everything in build
 gulp.task('clean', function() {
-  return gulp.src(buildDir).pipe(clean());
+  return del([buildDir]);
 });
 
 // just makes sure that the build dir exists
