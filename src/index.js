@@ -8,4 +8,5 @@
 // Same as
 var utils = require("./utils.js");
 utils.reduce = require("./reduce.js");
+utils.png = require("./png.js");
 module.exports = exports = utils;
