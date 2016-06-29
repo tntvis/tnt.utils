@@ -61,10 +61,11 @@ var png = function () {
             var sheets = document.styleSheets;
             // var sheets = [];
             for (var i=0; i<sheets.length; i++) {
+                var href = sheets[i].href || "";
                 if (css) {
                     var skip = true;
                     for (var c=0; c<css.length; c++) {
-                        if (css[c] == sheets[i].href) {
+                        if (href.indexOf(css[c]) > -1) {
                             skip = false;
                             break;
                         }
