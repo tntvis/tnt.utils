@@ -20,7 +20,7 @@ var png = function () {
             var images = d3.select(from_svg)
                 .selectAll('image');
 
-            var remaining = images[0].length;
+            var remaining = images.size();
             if (remaining === 0) {
                 cbak();
             }

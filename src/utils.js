@@ -1,5 +1,11 @@
 
 module.exports = {
+    functor: function (v) {
+        return typeof v === "function" ? v : function () {
+            return v;
+        };
+    },
+
     iterator : function(init_val) {
 	var i = init_val || 0;
 	var iter = function () {
